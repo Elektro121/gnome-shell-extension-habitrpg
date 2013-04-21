@@ -3,6 +3,7 @@ const St = imports.gi.St;
 const Main = imports.ui.main;
 
 let text, button;
+let HP=50;
 
 function init() {
     button = new St.Bin({ style_class: 'panel-button',
@@ -11,8 +12,21 @@ function init() {
                           x_fill: true,
                           y_fill: false,
                           track_hover: true });
-    let label = new St.Label({ text: "HabitRPG" });
+    label = new St.Label({ text: "HabitRPG" });
+/*
+    let icon = new St.Icon({ icon_name: 'system-run-symbolic',
+                             style_class: 'system-status-icon' });
+
+*/
     button.set_child(label);
+    button.connect('button-press-event', changeText);
+}
+
+function changeText() {
+	if (HP>0) {
+		HP-=5;
+		}
+    label.text = "HP : " + HP + "/50";
 }
 
 function enable() {
