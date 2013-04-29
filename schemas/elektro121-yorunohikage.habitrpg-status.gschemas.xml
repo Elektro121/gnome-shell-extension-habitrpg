@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schemalist gettext-domain="gnome-shell-extensions">
+  <schema path="/elektro121-yorunohikage/habitrpg-status" id="elektro121-yorunohikage.habitrpg-status">
+		<key type="s" name="settings-json">
+			<default>'
+				{
+					"userAPI": "",
+					"tokenAPI": "",
+					"frequency" : 3600;
+				}
+			'</default>
+			<summary>JSON settings</summary>
+			<description>Settings for habitrpg-status@elektro121-yorunohikage configuration.</description>
+		</key>
+	</schema>
+</schemalist>
