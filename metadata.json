@@ -2,10 +2,6 @@
 	"shell-version": ["3.6.3.1"],
 	"uuid": "habitrpg-status@elektro121-yorunohikage",
 	"name": "HabitRPG Status",
-<<<<<<< HEAD
 	"description": "Get your habitRPG status and place it in the interface.",
 	"settings-schema": "elektro121-yorunohikage.habitrpg-status", 
-=======
-	"description": "Get your habitRPG status and place it in the interface."
->>>>>>> 745837c1236c5e878454b14ce65b0296f567d260
 }
