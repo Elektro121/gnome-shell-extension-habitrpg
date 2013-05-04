@@ -16,9 +16,9 @@ function init() {
     Convenience.initTranslations();
 }
 
-const ExamplePrefsWidget = new GObject.Class({
+const HabitRPGStatusPrefsWidget = new GObject.Class({
     Name: 'HabitRPGStatus.Prefs.Widget',
-    GTypeName: 'HabitRPGStatusPrefsWidget',
+    GTypeName: 'JeReserveToutLesNomsLOLOLOLOLPrefsWidget',
     Extends: Gtk.Grid,
 
     _init: function(params) {
