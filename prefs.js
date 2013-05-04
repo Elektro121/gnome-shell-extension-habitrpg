@@ -17,41 +17,36 @@ function init() {
 }
 
 const ExamplePrefsWidget = new GObject.Class({
-    Name: 'Example.Prefs.Widget',
-    GTypeName: 'ExamplePrefsWidget',
+    Name: 'HabitRPGStatus.Prefs.Widget',
+    GTypeName: 'HabitRPGStatusPrefsWidget',
     Extends: Gtk.Grid,
 
     _init: function(params) {
 	this.parent(params);
         this.margin = this.row_spacing = this.column_spacing = 10;
 
-	// TRANSLATORS: Example is the name of the extension, should not 
-be
+	// TRANSLATORS: HabitRPGStatus is the name of the extension, should not be
 	// translated
-	let primaryText = _("Example aims to show how to build well 
-behaved \
-extensions for the Shell and as such it has little functionality on its 
-own.\n\
+	let primaryText = _("HabitRPGStatus aims to show how to build well behaved \
+extensions for the Shell and as such it has little functionality on its own.\n\
 Nevertheless it's possible to customize the greeting message.");
 
 	this.attach(new Gtk.Label({ label: primaryText, wrap: true }), 
 0, 0, 2, 1);
 
-	this.attach(new Gtk.Label({ label: '<b>' + _("Message:") + 
-'</b>', use_markup: true }),
+	this.attach(new Gtk.Label({ label: '<b>' + _("Message:") + '</b>', use_markup: true }),
 		    0, 1, 1, 1);
 
 	let entry = new Gtk.Entry({ hexpand: true });
 	this.attach(entry, 1, 1, 1, 1);
 
 	this._settings = Convenience.getSettings();
-	this._settings.bind('hello-text', entry, 'text', 
-Gio.SettingsBindFlags.DEFAULT);
+	this._settings.bind('hello-text', entry, 'text', Gio.SettingsBindFlags.DEFAULT);
     }
 });
 
 function buildPrefsWidget() {
-    let widget = new ExamplePrefsWidget();
+    let widget = new HabitRPGStatusPrefsWidget();
     widget.show_all();
 
     return widget;
