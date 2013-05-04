@@ -6,7 +6,5 @@
         "3.6"
     ],
     "url": "https://github.com/Elektro121/gnome-shell-extension-habitrpg",
-    "uuid": "habitrpg-status@elektro121-yorunohikage",
-    "gettext-domain": "gnome-shell-extensions", 
-    "settings-schema": "org.gnome.shell.extensions.habitrpg-status"
+    "uuid": "habitrpg-status@elektro121-yorunohikage"
 }
