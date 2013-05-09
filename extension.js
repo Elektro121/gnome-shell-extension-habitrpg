@@ -20,17 +20,18 @@ let user = {
 		let self = this;
 		
 		// We create a new GET request
-		//let message = Soup.Message.new('GET', "https://habitrpg.com/api/v1/user"); // URL to use in the future
-		let message = Soup.Message.new('GET', "https://habitrpg.com/api/v1/status");
+		let message = Soup.Message.new('GET', "http://server:3000/api/v1/user"); // URL to use in the future
+		// let message = Soup.Message.new('GET', "http://server:3000/api/v1/status");
 		
 		// We append headers to tell the server the user data
+		message.set_request("application/json",Soup.MemoryUse.COPY,"{}","{}".length);
 		//message.request_headers.append("Content-Type", "application/json");
-		//message.request_headers.append("x-api-user", this.id);
-		//message.request_headers.append("x-api-key", this.apiToken);
+		message.request_headers.append("x-api-user", this.id);
+		message.request_headers.append("x-api-key", this.apiToken);
         
         // We queue the message to get the response
         _httpSession.queue_message(message, function(session, message) { 
-            if (message.status_code !== 200) { // Constant instead of number please !
+				if (message.status_code !== 200) { // Constant instead of number please !
             	Main.notify("Loading error... " + message.status_code + " : " + message.reason_phrase);
 				return;
 			}
@@ -58,11 +59,8 @@ let label, button;
 function init() {
 	user.id = "";
 	user.apiToken = "";
-	
-	user.getData();
-	
 	// Testing values to delete later
-	user.health = user.maxHealth = 50;
+	//user.health = user.maxHealth = 50;
 	
     button = new St.Bin({ style_class: 'panel-button',
                           reactive: true,
@@ -81,10 +79,8 @@ function init() {
 }
 
 function changeText() {	
-	if (user.health > 0) {
-		user.health -= 5;
-	}
-    label.text = "HP : " + user.health + "/" + user.maxHealth;
+    user.getData();
+    label.text = "HP : " + user.dataObject.stats.hp + "/" + user.dataObject.stats.maxHealth;
 }
 
 function enable() {
